@@ -1,0 +1,17 @@
+configuration:
+supported_engines: tk-desktop
+
+# the Shotgun fields that this engine needs in order to operate correctly
+requires_shotgun_fields:
+
+display_name: "Sun Premiere"
+description: "App Template for SG Toolkit"
+
+# Required minimum versions for this item to run
+requires_shotgun_version:
+requires_core_version: "v0.19.18"
+requires_engine_version:
+
+# the frameworks required to run this app
+frameworks:
+    - {"name": "sgtk-framework-sun-python", "version": "v0.x.x"}
