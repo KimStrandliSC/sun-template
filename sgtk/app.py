@@ -70,52 +70,21 @@ class SgtkWrapper(sgtk.platform.Application):
             bootstrap_handler.show_update_dialog(self, "2.1.0")
             return
 
-        else:
-            launchFilePath = str(self.app_python() / "sun_premiere" / "ui" / "SunControllerUI" / "open_ui.pyc")
+        launchFilePath = str(self.app_python() / "sun_premiere" / "ui" / "SunControllerUI" / "open_ui.pyc")
 
-            # Include this apps own python folder
-            # It has its "own" requirements(installed in init) thats not part of the bootstrap or shotgrid python env
-            incl_paths = [
-                str(self.app_python())
-            ]
+        # Include this apps own python folder
+        # It has its "own" requirements(installed in init) thats not part of the bootstrap or shotgrid python env
+        incl_paths = [
+            str(self.app_python())
+        ]
 
-            # Launch our script though the handler
-            bootstrap_handler.launch_app(
-                launchFilePath, 
-                frameworks=self.frameworks,  # If we had more frameworks, pythonpaths from them would be added
-                incl_paths=incl_paths,
-                envvars={
-                    'sun_project_id': str(self.engine.context.to_dict().get('project')['id']),
-                },
-                logger=logger
-            )
-
-    def launch_toolbox(self):
-        # Get the bootstrap framework
-        pythonBootstrapFramework = self.frameworks["sgtk-framework-sun-python"]
-        bootstrap_handler = pythonBootstrapFramework.handler()
-
-        qtVersion = bootstrap_handler.qt_version()
-        if bootstrap_handler.is_older_version(qtVersion, "6.5.8"):
-            bootstrap_handler.show_update_dialog(self, "2.1.0")
-            return
-
-        else:
-            launchFilePath = str(self.app_python() / "sun_premiere" / "ui" / "control_panel" / "main.pyc")
-
-            # Include this apps own python folder
-            # It has its "own" requirements(installed in init) thats not part of the bootstrap or shotgrid python env
-            incl_paths = [
-                str(self.app_python())
-            ]
-
-            # Launch our script though the handler
-            bootstrap_handler.launch_app(
-                launchFilePath,
-                frameworks=self.frameworks,  # If we had more frameworks, pythonpaths from them would be added
-                incl_paths=incl_paths,
-                envvars={
-                    'sun_project_id': str(self.engine.context.to_dict().get('project')['id']),
-                },
-                logger=logger
-            )
+        # Launch our script though the handler
+        bootstrap_handler.launch_app(
+            launchFilePath,
+            frameworks=self.frameworks,  # If we had more frameworks, pythonpaths from them would be added
+            incl_paths=incl_paths,
+            envvars={
+                'sun_project_id': str(self.engine.context.to_dict().get('project')['id']),
+            },
+            logger=logger
+        )

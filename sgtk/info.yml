@@ -4,7 +4,7 @@ supported_engines: tk-desktop
 # the Shotgun fields that this engine needs in order to operate correctly
 requires_shotgun_fields:
 
-display_name: "Sun Premiere"
+display_name: "Sun Template"
 description: "App Template for SG Toolkit"
 
 # Required minimum versions for this item to run

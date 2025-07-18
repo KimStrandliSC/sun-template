@@ -30,10 +30,14 @@ where = ["src"]
 [tool.setuptools.package-data]
 "*" = ["*"]  # Glob for all files in data/
 
+
+### Paths are relative to repo root
 [tool.sgtk_build]
 sgtk_name = "sgtk-desktop-sun-template"
 version_file = "version.py"
 sgtk_includes = ["version.py"]
+#python_includes = ["src/sun_template"]
+ignore_paths = []
 build_dependencies = [
 #    "sun_sgtk @ git+https://github.com/SunCreature/sun_sgtk.git"
 ]
