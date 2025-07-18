@@ -1,6 +1,6 @@
 import pathlib
 import tomllib
-from sun_sgtk import sgtk_build_tool, sg_utils
+from sun_sgtk import sgtk_project_build, sg_utils
 
 
 def main():
@@ -24,7 +24,7 @@ def main():
 
 
 
-    zip_package = sgtk_build_tool.build_sgtk(
+    zip_package = sgtk_project_build.build_sgtk(
         repo_root=repo_root,
         build_dir=build_dir,
         sgtk_dir=sgtk_dir,
@@ -35,11 +35,11 @@ def main():
 
 
 
-    # ### UPLOAD TO FLOW
-    # sgtk_name = sgtk_config.get("sgtk_name")
-    # print(f'Uploading SGTK bundle {zip_package.name} to Flow')
-    # result = sg_utils.upload_toolkit_bundle(bundle_name=sgtk_name, zip_file_path=zip_package)
-    # print(result)
+    ### UPLOAD TO FLOW
+    sgtk_name = sgtk_config.get("sgtk_name")
+    print(f'Uploading SGTK bundle {zip_package.name} to Flow')
+    result = sg_utils.upload_toolkit_bundle(bundle_name=sgtk_name, zip_file_path=zip_package)
+    print(result)
 
 
 
